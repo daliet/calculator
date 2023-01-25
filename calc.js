@@ -41,7 +41,7 @@ function calculate(){
 
 buttons.forEach((button) => {  
   button.addEventListener("click", () => {   
-    if(typeof currentNumber === 'number'){ // Initializes the currentNumber after the calculation
+    if(typeof currentNumber === 'number'){ // Sets the currentNumber into an empty String after the calculation
       currentNumber = '';
     }
     addNumber(button.value)
