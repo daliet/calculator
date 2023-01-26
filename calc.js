@@ -17,15 +17,23 @@ const operations = {
 };
 
 
-function addNumber(number) {
+function addNumber(number){
   currentNumber += number;
-  screen.value = parseInt(currentNumber);
+  screen.value = parseFloat(currentNumber);
 }
-  
+
+ 
+function addDecimal(){  
+  if(!currentNumber.includes(decimalButton.value)){
+    currentNumber += decimalButton.value;
+    screen.value = parseFloat(currentNumber);
+  }  
+}
+
 
 function addOperator(newOperator){
   if(currentNumber !== '') // Uses the last operator clicked
-  numbers.push(parseInt(currentNumber)); 
+  numbers.push(parseFloat(currentNumber)); 
   if(numbers.length == 2) calculate();
   operator = newOperator;
   currentNumber = '';
@@ -55,10 +63,13 @@ operatorButtons.forEach((button) => {
 });
 
 
+decimalButton.addEventListener("click", addDecimal);
+
+
 equalButton.addEventListener("click",() =>{ 
-  numbers.push(parseInt(currentNumber)); 
+  numbers.push(parseFloat(currentNumber)); 
   calculate();
-  return currentNumber = parseInt(screen.value),
+  return currentNumber = parseFloat(screen.value),
   numbers = [];
 });
 
