@@ -46,6 +46,13 @@ function calculate(){
   numbers = [result];
 }
 
+function clear() {
+  currentNumber = '';
+  numbers = [];
+  operator = '';
+  screen.value = 0;
+}
+
 
 buttons.forEach((button) => {  
   button.addEventListener("click", () => {   
@@ -73,6 +80,8 @@ equalButton.addEventListener("click",() =>{
   numbers = [];
 });
 
+
+clearButton.addEventListener("click", clear);
 
 
 
